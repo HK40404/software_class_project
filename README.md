@@ -10,7 +10,7 @@ https://ruanyifeng.com/blog/2018/02/docker-tutorial.html
 
 ### DOCKER安装
 
-参考官方文档https://docs.docker.com/engine/install/ubuntu/中的**Install using the repository**方法
+参考官方文档https://docs.docker.com/engine/install/ubuntu/中的Install using the repository方法
 
 ### DOCKER更换国内仓库源
 
