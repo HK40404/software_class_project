@@ -1,52 +1,56 @@
-#  高级软件工程课程项目
+#  高级软件工程
 
-### DOCKER介绍
-
- https://zhuanlan.zhihu.com/p/187505981
-
-### DOCKER基本教程
-
-https://ruanyifeng.com/blog/2018/02/docker-tutorial.html
-
-### DOCKER安装
-
-参考官方文档https://docs.docker.com/engine/install/ubuntu/ 中的**Install using the repository**方法
-
-### DOCKER更换国内仓库源
-
-https://blog.csdn.net/weixin_44106306/article/details/115873140
-
-### DOCKER向宿主机传文件
-
-```shell
-$ sudo docker cp 本地文件的路径 container_id:<docker容器内的路径>
-```
+前端文件请放到`view`文件夹，后端文件请放到`controller`文件夹，数据库文件请放到`model`文件夹。
 
 
 
-### 项目打包迁移
+## 前端环境搭建
 
-1. 将容器打包为镜像：
 
-    ```shell
-    $ sudo docker commit -a "runoob.com" -m "my apache" <容器名称或id> <打包的镜像名称:标签>
-    ```
 
-    - -a :提交的镜像作者；
-    - -c :使用Dockerfile指令来创建镜像；
-    - -m :提交时的说明文字；
+## 后端环境搭建
 
-2. 将镜像导出
 
-    ```shell
-    #  将 something:latest镜像，导出到something-latest.tar
-    $ sudo docker save -o ./something-latest.tar something:latest
-    ```
 
-3. 导入镜像
+## 数据库环境搭建
 
-   ```shell
-   $ docker load -i something-latest.tar
-   ```
+见`/model/数据库.md`。
 
-   
+
+
+## 小组成员进度表
+
+大家每完成一项填一下表，便于查看进度。
+
+**王积慧：**
+
+| 工作 | 完成时间 |
+| :--: | :------: |
+|      |          |
+
+**王泽华：**
+
+| 工作 | 完成时间 |
+| :--: | :------: |
+|      |          |
+
+**王像晗：**
+
+| 工作 | 完成时间 |
+| :--: | :------: |
+|      |          |
+
+**严文励：**
+
+| 工作 | 完成时间 |
+| :--: | :------: |
+|      |          |
+
+**黄轲：**
+
+|                          工作                          |    时间     |
+| :----------------------------------------------------: | :---------: |
+|                      课表数据爬取                      | 11.18~11.20 |
+|                 课表数据清洗、格式调整                 | 11.20~11.22 |
+| 建立数据库，建立课程表和课程时间地点表，发布docker镜像 |    11.22    |
+
