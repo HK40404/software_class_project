@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Course Table</title>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+body {
+  /* min-height: 2000px; */
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- header -->
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">查询课程</a></li>
+            <li><a href="#">个人课表</a></li>
+            <li><a href="#">课程信息</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span
+                  class="glyphicon glyphicon-user"
+                  aria-hidden="true"
+                ></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">个人信息</a></li>
+                <li><a href="#">注销</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+   <!-- container -->
+
+
+            <!-- container -->
+    <div class="container" id="app">
+      <div class="jumbotron">
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8">
+                <form role="form" method="post" action="">
+                  <div class="form-group">
+                    <label>开课单位</label>
+                    <select name="deptId" class="form-control" v-model="deptId">
+                      <option disabled value="">全部</option>
+                      <option value="910">数学科学学院</option>
+                      <option value="911">物理科学学院</option>
+                      <option value="912">化学科学学院</option>
+                      <option value="914">地球与行星科学学院</option>
+                      <option value="921">资源与环境学院</option>
+                      <option value="913">生命科学学院</option>
+                      <option value="916">信息科学与工程学院</option>
+                      <option value="951">计算机科学与技术学院</option>
+                      <option value="917">经济与管理学院</option>
+                      <option value="927">人文学院</option>
+                      <option value="915">外语系</option>
+                      <option value="919">工程教育学院</option>
+                      <option value="944">计算与通信工程学院</option>
+                      <option value="953">工程管理与信息技术学院</option>
+                      <option value="958">工程科学学院</option>
+                      <option value="928">材料科学与光电技术学院</option>
+                      <option value="952">电子电气与通信工程学院</option>
+                      <option value="954">中丹学院</option>
+                      <option value="945">公共政策与管理学院</option>
+                      <option value="956">本科部</option>
+                      <option value="955">国际学院</option>
+                      <option value="965">MPA</option>
+                      <option value="966">明德讲堂</option>
+                      <option value="967">创新创业学院</option>
+                      <option value="950">MBA</option>
+                      <option value="960">教务处</option>
+                      <option value="946">体育教研室</option>
+                      <option value="971">艺术中心</option>
+                      <option value="959">存济医学院</option>
+                      <option value="957">天文与空间科学学院</option>
+                      <option value="961">微电子学院</option>
+                      <option value="963">网络空间安全学院</option>
+                      <option value="962">未来技术学院</option>
+                      <option value="969">人工智能学院</option>
+                      <option value="968">心理学系</option>
+                      <option value="973">核科学与技术学院</option>
+                      <option value="974">现代农业科学学院</option>
+                      <option value="975">化学工程学院</option>
+                      <option value="972">光电学院</option>
+                      <option value="970">纳米科学与技术学院</option>
+                      <option value="964">马克思主义学院</option>
+                      <option value="976">海洋学院</option>
+                      <option value="977">航空宇航学院</option>
+                      <option value="979">杭州高等研究院</option>
+                      <option value="978">温州研究院</option>
+                      <option value="980">大珩学院</option>
+                      <option value="981">深圳先进技术与工程学院</option>
+                      <option value="982">机器人与智能制造学院</option>
+                      <option value="983">福建学院</option>
+                      <option value="984">能源学院</option>
+                      <option value="985">南京学院</option>
+                      <option value="986">重庆学院</option>
+                      <option value="987">应急管理科学与工程学院</option>
+                    </select>
+                    <!-- <span>{{ deptId }}</span> -->
+                  </div>
+                  <!-- <div class="form-group">
+                    <labe>学期</labe>
+                    <select name="termId" class="form-control" v-model="termId">
+                      <option value="67864">2021—2022学年(夏)第三学期</option>
+                      <option value="67863">2021—2022学年(春)第二学期</option>
+                      <option value="67862" selected>
+                        2021—2022学年(秋)第一学期
+                      </option>
+                      <option value="64759">2020—2021学年(夏)第三学期</option>
+                      <option value="64758">2020—2021学年(春)第二学期</option>
+                      <option value="64757">2020—2021学年(秋)第一学期</option>
+                      <option value="59587">2019—2020学年(夏)第三学期</option>
+                      <option value="59586">2019—2020学年(春)第二学期</option>
+                      <option value="59585">2019—2020学年(秋)第一学期</option>
+                      <option value="56003">2018—2019学年(夏)第三学期</option>
+                      <option value="56002">2018—2019学年(春)第二学期</option>
+                      <option value="56001">2018—2019学年(秋)第一学期</option>
+                      <option value="52576">2017—2018学年(夏)第三学期</option>
+                      <option value="52575">2017—2018学年(春)第二学期</option>
+                      <option value="52574">2017—2018学年(秋)第一学期</option>
+                      <option value="49346">2016—2017学年(夏)第三学期</option>
+                      <option value="49345">2016—2017学年(春)第二学期</option>
+                      <option value="49344">2016—2017学年(秋)第一学期</option>
+                      <option value="49338">2015—2016学年(夏)第三学期</option>
+                      <option value="45462">2015—2016学年(春)第二学期</option>
+                      <option value="45461">2015—2016学年(秋)第一学期</option>
+                      <option value="45450">2014—2015学年(夏)第三学期</option>
+                      <option value="43125">2014—2015学年(春)第二学期</option>
+                      <option value="43124">2014—2015学年(秋)第一学期</option>
+                      <option value="42859">2013—2014学年(夏)第三学期</option>
+                      <option value="41947">2013—2014学年(春)第二学期</option>
+                      <option value="40177">2013—2014学年(秋)第一学期</option>
+                      <option value="40176">2012—2013学年(夏)第三学期</option>
+                      <option value="37974">2012—2013学年(春)第二学期</option>
+                      <option value="36383">2012—2013学年(秋)第一学期</option>
+                      <option value="36377">2011—2012学年(夏)第三学期</option>
+                      <option value="35448">2011—2012学年(春)第二学期</option>
+                      <option value="34058">2011—2012学年(秋)第一学期</option>
+                      <option value="34055">2010—2011学年(夏)第三学期</option>
+                      <option value="33219">2010—2011学年(春)第二学期</option>
+                      <option value="32139">2010—2011学年(秋)第一学期</option>
+                      <option value="31422">2009—2010学年(夏)第三学期</option>
+                      <option value="30693">2009—2010学年(春)第二学期</option>
+                      <option value="30334">2009—2010学年(秋)第一学期</option>
+                      <option value="30332">2008—2009学年(夏)第三学期</option>
+                      <option value="29712">2008—2009学年(春)第二学期</option>
+                      <option value="28787">2008—2009学年(秋)第一学期</option>
+                      <option value="28193">2007—2008学年(夏)第三学期</option>
+                      <option value="28154">2007—2008学年(春)第二学期</option>
+                      <option value="27267">2007—2008学年(秋)第一学期</option>
+                      <option value="27242">2006—2007学年(夏)第三学期</option>
+                      <option value="26275">2006—2007学年(春)第二学期</option>
+                      <option value="25892">2006—2007学年(秋)第一学期</option>
+                      <option value="25390">2005—2006学年(夏)第三学期</option>
+                      <option value="25366">2005—2006学年(春)第二学期</option>
+                      <option value="24761">2005—2006学年(秋)第一学期</option>
+                      <option value="1031">2004—2005学年(夏)第三学期</option>
+                      <option value="1030">2004—2005学年(春)第二学期</option>
+                      <option value="1029">2004—2005学年(秋)第一学期</option>
+                      <option value="1028">2003—2004学年(夏)第三学期</option>
+                      <option value="1027">2003—2004学年(春)第二学期</option>
+                      <option value="1026">2003—2004学年(秋)第一学期</option>
+                      <option value="1017">2002—2003学年第二学期</option>
+                      <option value="1016">2002—2003学年第一学期</option>
+                      <option value="1007">2001—2002学年第二学期</option>
+                      <option value="1006">2001—2002学年第一学期</option>
+                      <option value="999">1999—2000学年第一学期</option>
+                    </select>
+                  </div> -->
+                  <div class="form-group">
+                    <label>课程编码：</label>
+                    <input
+                      placeholder=""
+                      class="form-control"
+                      v-model="courseCode"
+                      type="text"
+                      id="courseCode"
+                      name="courseCode"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>课程名称：</label>
+                    <input
+                      placeholder=""
+                      class="form-control"
+                      type="text"
+                      id="courseName"
+                      name="courseName"
+                      v-model="courseName"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>主讲教师</label>
+                    <input class="form-control" type="text" name="tearchName" id="tearchName" v-model="tearchName">
+                  </div>
+                  <div class="form-group">
+                    <label >授课方式</label>
+                    <select name="classMethod" class="form-control" v-model="classMethod">
+                      <option disabled value="" >请选择授课方式</option>
+                      <option value="1">课堂讲授为主</option>
+                      <option value="2">授课、讨论</option>
+                      <option value="3">讲课、上机</option>
+                      <option value="4">其它（需说明）</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >考试方式</label>
+                    <select name="testMethod" class="form-control" v-model="testMethod">
+                      <option disabled value="" >请选择考核方式</option>
+                      <option value="1">课堂开卷</option>
+                      <option value="2">读书报告</option>
+                      <option value="3">闭卷笔试</option>
+                      <option value="4">大开卷</option>
+                      <option value="5">文献综述</option>
+                      <option value="6">其它（需说明)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>课程属性：</label>
+                    <select
+                      name="courseAttribute"
+                      class="form-control"
+                      v-model="courseAttribute"
+                    >
+                      <option value="">请选择</option>
+                      <option value="1">核心课</option>
+                      <option value="2">普及课</option>
+                      <option value="3">研讨课</option>
+                      <option value="4">公共必修课</option>
+                      <option value="5">公共选修课</option>
+                      <option value="6">高级强化课</option>
+                      <option value="7">实验课</option>
+                      <option value="8">其他</option>
+                    </select>
+                  </div>
+                  <!-- <div class="form-group">
+                         <label>是否暑期学校：</label>
+                         <select name="isSummer" style="width:60px">
+                             <option value="">全部</option>
+                             <option value="1" >是</option>
+                             <option value="0" >否</option>
+                         </select>
+                     </div> -->
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-info"
+                    @click="sendData"
+                  >
+                    <span class="glyphicon glyphicon-search"></span> 查询
+                  </button>
+                  <button type="button" class="btn btn-primary btn-danger">
+                    导出
+                  </button>
+                </form>
+              </div>
+          </div>
+      </div>
+
+      
+      <div class="jumbotron">
+        <table class="table table-striped table-hover table-bordered table-responsive">
+          <thead>
+            <tr>
+                <th >序号</th>
+                <th >开课单位</th>
+                <th >课程编码</th>
+                <th >课程名称</th>
+                <th >课程属性</th>
+                <th >所属学科/专业</th>
+                <th >课时/学分</th>
+                <th >限选</th>
+                <th >已选</th>
+                <th >开课周</th>
+                <th >星期节次</th>
+                <th >教室</th>
+                <th >授课方式</th>
+                <th >考试方式</th>
+                <th >首席教授</th>
+                <th >主讲教师</th>
+                <th >助教</th>
+                <th >是否远程教学</th>
+                <th>往届学姐学长打分</th>
+                <!--  <th ="8%">教师所属单位</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td rowspan="2">1</td>
+                <td rowspan="2">人文学院</td>
+                <td rowspan="2"><a href="/course/courseplan/195974" target="_blank">010103M05001H</a></td>
+                <td rowspan="2"><a href="/course/coursetime/195974" target="_blank">西方哲学史专题</a></td>
+                <td rowspan="2">专业普及课</td>
+                <td rowspan="2">
+                    <div>外国哲学</div>
+                </td>
+                <td rowspan="2">50/3.0</td>
+                <td rowspan="2">0</td>
+                <td rowspan="2">37</td>
+                <td>
+                    第2-10周
+                </td>
+                <td>周三(2-4)</td>
+                <td>学园一006</td>
+                <td rowspan="2">课堂讲授为主</td>
+                <td rowspan="2">课堂开卷</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">邱慧</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">否</td>
+                <td rowspan="2">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                </td>
+    
+                <!--  <td rowspan="2">人文学院</td>-->
+            </tr>
+            <tr>
+                <td>第2-10周</td>
+                <td>周五(2-4)</td>
+                <td>学园一006</td>
+            </tr>
+            <tr>
+                <td rowspan="2">2</td>
+                <td rowspan="2">人文学院</td>
+                <td rowspan="2"><a href="/course/courseplan/195974" target="_blank">010103M05001H</a></td>
+                <td rowspan="2"><a href="/course/coursetime/195974" target="_blank">西方哲学史专题</a></td>
+                <td rowspan="2">专业普及课</td>
+                <td rowspan="2">
+                    <div>外国哲学</div>
+                </td>
+                <td rowspan="2">50/3.0</td>
+                <td rowspan="2">0</td>
+                <td rowspan="2">37</td>
+                <td>
+                    第2-10周
+                </td>
+                <td>周三(2-4)</td>
+                <td>学园一006</td>
+                <td rowspan="2">课堂讲授为主</td>
+                <td rowspan="2">课堂开卷</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">邱慧</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">否</td>
+                <!--  <td rowspan="2">人文学院</td>-->
+                <td rowspan="2">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        <!-- container end -->
+
+
+</body>
+</html>
+
+
+
